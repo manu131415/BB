@@ -1,8 +1,10 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
+import "./layout.css"
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -17,12 +19,19 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 shadow-sm">
+    <header className="sticky top-0 z-50 head backdrop-blur shadow-md">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold font-bigilla text-blue-600">
-          Bloom Branding
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.jpg"
+            alt="Bloom Branding Logo"
+            width={200}
+            height={80}
+            priority
+            className="object-contain"
+          />
         </Link>
 
         {/* Desktop Menu */}
@@ -31,7 +40,7 @@ export default function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`font-medium transition ${
+                className={`text-lg transition ${
                   pathname === link.href
                     ? "text-blue-600"
                     : "text-gray-700 hover:text-blue-600"
@@ -45,7 +54,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-700"
+          className="md:hidden text-2xl text-gray-700"
           onClick={() => setOpen(!open)}
         >
           ☰
@@ -61,7 +70,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-gray-700 font-medium hover:text-blue-600"
+                className="text-lg font-semibold text-gray-700 hover:text-blue-600"
               >
                 {link.name}
               </Link>
