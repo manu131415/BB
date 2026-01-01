@@ -29,7 +29,7 @@
 
 /* Hero Card */
 .hero-content {
-  background-image: url('/ourstorybg.png');
+  background-image: url('/ourstorybg2.png');
   background-size: cover;
   background-position: center;
 
@@ -53,53 +53,36 @@
 /* DARK BROWN ROYAL GRADIENT */
 .hero-content h1 {
   font-size: 4rem;
-  font-family: "Playfair Display SC", serif;
-  font-weight: 700;
+  font-family: "Cinzel", serif;
+  font-weight: 900;
 
-  background: linear-gradient(
-    to right,
-    #3a1f0a,
-    #5a3013,
-    #7a4520
-  );
+  background: linear-gradient(to right,#3a1f0a,#5a3013,#7a4520);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* BROWN TEXT for paragraph */
+/* subtitle */
 .hero-content p {
   font-size: 1.3rem;
   font-family: "Libre Baskerville", serif;
-  letter-spacing: .5px;
   color: #3a1f0a;
   text-shadow: 0 2px 6px rgba(0,0,0,.35);
 }
 
-/* Scroll Indicator */
-.scroll-icon {
-  width: 3rem;
-  height: 5rem;
-  border: 2px solid #c8a978;
-  border-radius: 2rem;
-}
-
-.scroll-icon::after {
-  content: '';
-  width: .25rem;
-  height: 1rem;
-  background: #c8a978;
-  display: block;
-  margin: 1rem auto;
-  border-radius: 10px;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  40% { transform: translateY(-10px); }
+/* INTRO TEXT */
+.hero-intro {
+  margin-top: 2rem;
+  max-width: 900px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  line-height: 1.8;
+  color: #4a2b16;
+  padding: 0 2rem;
+  opacity: .95;
 }
 
 /* ================= CARDS ================= */
-/* (UNCHANGED — SAME PREMIUM EARL GREY DESIGN YOU LOVE) */
+/* (unchanged — your earl grey premium design) */
 
 .cards-section {
   background: #0f172a;
@@ -180,7 +163,6 @@
   line-height: 1.8;
 }
 
-/* Dots */
 .floating-dot {
   position: absolute;
   border-radius: 50%;
@@ -188,9 +170,9 @@
   border: 1px solid rgba(255,255,255,.1);
 }
 
-/* Loading */
 .page-loading,
 .hero-loading {
   min-height: 100vh;
   background: #0f172a;
 }
+

@@ -7,47 +7,34 @@ import "./our-story.css";
 interface CardData {
   year: string;
   title: string;
-  description: string;
   quote: string;
+  description: string;
 }
 
 const CARD_DATA: CardData[] = [
-  {
-    year: "2020",
-    title: "The Beginning",
+  { year: "2020", title: "The Beginning",
     quote: "Where dreams quietly whispered… and we chose to listen.",
-    description:
-      "A simple spark turned into a defining moment. What started with passion soon became a purpose — a promise to build something truly meaningful."
+    description: "A simple spark turned into a defining moment. What started with passion soon became a purpose — a promise to build something truly meaningful."
   },
-  {
-    year: "2021",
-    title: "First Milestone",
+  { year: "2021", title: "First Milestone",
     quote: "Tiny steps turned into beautiful progress.",
-    description:
-      "We launched, learned, grew, and celebrated every heartbeat of encouragement from the wonderful people who believed in us."
+    description: "We launched, learned, grew, and celebrated every heartbeat of encouragement from the wonderful people who believed in us."
   },
-  {
-    year: "2022",
-    title: "Expansion",
+  { year: "2022", title: "Expansion",
     quote: "Every sunrise brought a new horizon.",
-    description:
-      "The journey widened. New people, bigger dreams, stronger confidence. Together, we expanded our voice and vision."
+    description: "The journey widened. New people, bigger dreams, stronger confidence. Together, we expanded our voice and vision."
   },
-  {
-    year: "2023",
-    title: "Innovation",
+  { year: "2023", title: "Innovation",
     quote: "Creativity became our rhythm.",
-    description:
-      "We experimented fearlessly, built passionately, and shaped ideas that inspired everyone connected to this story."
+    description: "We experimented fearlessly, built passionately, and shaped ideas that inspired everyone connected to this story."
   },
-  {
-    year: "2024",
-    title: "The Future",
+  { year: "2024", title: "The Future",
     quote: "And the best chapter… is still being written.",
-    description:
-      "With hope, courage, and heart — we continue forward. Because this story isn’t ending… it’s only becoming more beautiful."
+    description: "With hope, courage, and heart — we continue forward. Because this story isn’t ending… it’s only becoming more beautiful."
   }
 ];
+
+
 
 /* ================= HERO ================= */
 const HeroSection = ({ scrollY }: { scrollY: number }) => {
@@ -91,21 +78,47 @@ const HeroSection = ({ scrollY }: { scrollY: number }) => {
       <div
         className="hero-content"
         style={{
-          transform: `translateY(${-scrollY * 50}px)`,
+          transform: `translateY(${-scrollY * 45}px)`,
           opacity: Math.max(0, 1 - scrollY * 2),
           backgroundPosition: `${50 + mousePosition.x}% ${50 + mousePosition.y}%`,
-          transition: "background-position .15s ease-out"
+          transition: "background-position .15s ease-out",
+
+          paddingTop: "4rem",
+          paddingBottom: "3rem",
+          paddingLeft: "3rem",
+          paddingRight: "3rem",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          maxWidth: "1100px"
         }}
       >
         <h1>Our Story</h1>
-        <p>Scroll to explore our journey through the years</p>
 
-        <div className="scroll-indicator">
-          <div className="scroll-icon" />
-          <span>Scroll</span>
-        </div>
+        <p style={{
+          maxWidth: "750px",
+          margin: "1rem auto 0",
+          lineHeight: "2rem"
+        }}>
+          Every journey begins with a quiet dream — a spark of hope that slowly
+          turns into purpose. Ours began with passion, courage, and a heart full of
+          belief. Over time it grew stronger… shaped by challenges, celebrated by
+          milestones, and guided by the incredible people who stood beside us.
+        </p>
+
+        <p style={{
+          maxWidth: "750px",
+          margin: ".8rem auto 0",
+          lineHeight: "2rem"
+        }}>
+          This isn’t just a timeline. It’s a collection of moments… lessons learned,
+          memories cherished, and love poured into every step forward. Scroll down,
+          and walk with us through the years we treasure.
+        </p>
       </div>
 
+
+      {/* Floating dots */}
       {dots.map((dot, i) => (
         <div
           key={i}
@@ -124,6 +137,10 @@ const HeroSection = ({ scrollY }: { scrollY: number }) => {
     </div>
   );
 };
+
+
+
+
 
 /* ================= PAGE ================= */
 export default function OurStoryPage() {
@@ -157,6 +174,8 @@ export default function OurStoryPage() {
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isClient, isInitialLoad]);
+
+
 
   const getCardStyle = useCallback(
     (index: number): React.CSSProperties => {
@@ -201,16 +220,22 @@ export default function OurStoryPage() {
     [scrollY, isClient, isInitialLoad]
   );
 
+
+
   if (!isClient) return <div className="page-loading" />;
+
+
 
   return (
     <div className="page-container">
+
       <HeroSection scrollY={scrollY} />
+
 
       <section
         ref={sectionRef}
         className="cards-section"
-        style={{ minHeight: `${CARD_DATA.length * 150}vh` }}
+        style={{ minHeight: `${CARD_DATA.length * 120}vh` }}
       >
         <div className="cards-container">
           {CARD_DATA.map((card, i) => (
@@ -223,6 +248,45 @@ export default function OurStoryPage() {
           ))}
         </div>
       </section>
+
+
+      {/* ENDING TEXT (NO GAP, ON DARK BG) */}
+      <section style={{
+        padding: "6rem 2rem",
+        background: "#0f172a",
+        textAlign: "center"
+      }}>
+        <h2 style={{
+          fontFamily: "Cinzel, serif",
+          fontSize: "2.8rem",
+          color: "#dcdcdc",
+          marginBottom: "1.5rem"
+        }}>
+          And so… our story finds its pause.
+        </h2>
+
+        <p style={{
+          fontFamily: "Great Vibes, cursive",
+          fontSize: "2rem",
+          color: "#e4e4e4",
+          marginBottom: "1.5rem"
+        }}>
+          “Not an ending… just a gentle breath of gratitude.”
+        </p>
+
+        <p style={{
+          fontFamily: "Libre Baskerville, serif",
+          fontSize: "1.3rem",
+          color: "#d0d0d0",
+          maxWidth: "900px",
+          margin: "0 auto",
+          lineHeight: "2.1rem"
+        }}>
+          Because every story that is loved never truly ends — it lives on in
+          memories, moments, and the beautiful tomorrows ahead.
+        </p>
+      </section>
+
     </div>
   );
 }

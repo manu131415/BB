@@ -1,0 +1,236 @@
+/* =================== FONTS =================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+
+/* =================== SECTION =================== */
+.members-section {
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+/* =================== HEADER =================== */
+.team-section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: "Playfair Display", serif;
+  color: #3E2723;
+}
+
+.team-section-header h2 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: 0.8px;
+  color: #4A2C17;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+.team-section-header p {
+  font-size: 1.2rem;
+  color: #6D4C41;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+
+/* =================== GRID =================== */
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+
+/* =================== CARD =================== */
+.member-card {
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --card-radius: 18px;
+  --transition: all 0.3s ease;
+
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  height: 280px;
+  width: 100%;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  font-family: "Dancing Script", cursive;
+}
+
+.member-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 40px 70px rgba(0,0,0,0.25);
+}
+
+
+/* =================== IMAGE =================== */
+.card-image {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  border: 3px solid rgba(160, 124, 88, 0.2);
+  transition: var(--transition);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* =================== CONTENT =================== */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 130px;
+  width: 100%;
+  height: 100%;
+}
+
+.card-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin: 0 0 .4rem;
+  color: #2A1B12;
+  font-family: "Dancing Script", cursive;
+}
+
+.card-description {
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+
+/* =================== TAGS =================== */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: .6rem;
+}
+
+.tag {
+  background: rgba(121, 85, 72, 0.12);
+  color: #6D4C41;
+  padding: .25rem .7rem;
+  border-radius: 50px;
+  font-size: .8rem;
+  font-weight: 600;
+  border: 1px solid rgba(121, 85, 72, 0.3);
+  white-space: nowrap;
+}
+
+
+/* =================== BUTTON =================== */
+.card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .4rem;
+  color: #5C4033;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: .9rem;
+  padding: .45rem 1.1rem;
+  background: rgba(121, 85, 72, 0.12);
+  border-radius: 6px;
+  border: 1px solid rgba(121, 85, 72, 0.25);
+  width: fit-content;
+  margin-top: auto;
+  transition: .2s;
+}
+
+.card-link:hover {
+  background: rgba(121, 85, 72, 0.2);
+  transform: translateY(-1px);
+}
+
+
+/* =================== DARK MODE =================== */
+@media (prefers-color-scheme: dark) {
+  .member-card {
+    --card-bg: rgba(30, 25, 20, 0.95);
+    border-color: rgba(255,255,255,0.08);
+    color: white;
+  }
+
+  .card-title { color: #ffe6c9; }
+  .card-description { color: #ddd; }
+
+  .tag {
+    background: rgba(255, 235, 205, 0.15);
+    color: #f7d6a1;
+    border-color: rgba(255, 235, 205, 0.3);
+  }
+
+  .card-link {
+    background: rgba(255, 235, 205, 0.12);
+    color: #f7d6a1;
+    border-color: rgba(255, 235, 205, 0.3);
+  }
+
+  .card-link:hover {
+    background: rgba(255, 235, 205, 0.22);
+  }
+}
+
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 768px) {
+  .member-card {
+    height: auto;
+    min-height: 260px;
+    padding: 1.75rem 1.5rem;
+  }
+
+  .card-image {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 1rem;
+    width: 95px;
+    height: 95px;
+  }
+
+  .card-content {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .card-title {
+    font-size: 1.8rem;
+  }
+
+  .card-description {
+    font-size: 1.05rem;
+    -webkit-line-clamp: 4;
+  }
+
+  .card-tags {
+    justify-content: center;
+  }
+
+  .card-link {
+    width: 100%;
+  }
+}
