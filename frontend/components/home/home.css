@@ -1,19 +1,118 @@
 @import "tailwindcss";
 .hero-bg {
-  background-image: url('/frontend/public/bg.jpg');
-  background-size: cover;
-  background-position: center;
+  background-image: url('/bg.jpg');
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
   width: 110%;
   height: 110%;
-  animation: bgMove 20s ease-in-out infinite alternate;
+  animation: bgMove 25s linear infinite;
 }
 
 @keyframes bgMove {
   0% {
-    transform: scale(1) translate(0, 0);
+    background-position: 0% 0%;
+    transform: scale(1);
   }
   100% {
-    transform: scale(1.1) translate(-20px, -20px);
+    background-position: 100% 100%;
+    transform: scale(1);
   }
 }
+
+.hero-overlay {
+  background: #e7d56e;
+  position: absolute;
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal span {
+  display: inline-block;
+  animation: revealX 1.5s ease-out forwards;
+}
+
+@keyframes revealX {
+  from {
+    transform: translateX(120%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.testimonials {
+  padding: 6rem 1.5rem;
+  background: #f0eeb1;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  color:#1d3d81;
+  font-family: Bigilla;
+}
+
+.testimonial-grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: #e8e6d8;
+  padding: 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+.testimonial-logo {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  padding: 2%;
+}
+
+.quote {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #624a41;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.testimonial-video {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-footer h4 {
+  text-align: center;
+  color: #4e3b34;
+  font-weight: 600;
+}
+
+.testimonial-footer span {
+  display: block;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #553b19;
+}
+
 
