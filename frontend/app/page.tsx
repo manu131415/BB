@@ -1,6 +1,6 @@
 import HeroSection from "@/components/home/heroSection"
 import Testimonials from "@/components/home/testimonials"
-import MembersSection from "@/components/membersection";
+import MembersSection from "@/components/home/membersection";
 
 export default function Home() {
   return (
