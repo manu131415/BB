@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  /* Bloom palette */
+  --color-bloom-earlGray: #E8E6D8;
+  --color-bloom-electricBlue: #892F1A;
+  --color-bloom-butterYellow: #BDAF62;
+  --color-bloom-darkChoc: #624441;
+}
+
 :root {
   --font-arial-nova: 'Arial Nova', sans-serif;
   background-color: #f0eeb1;
