@@ -15,7 +15,7 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 flex h-full items-center justify-center px-6">
-        <div className="max-w-3xl text-center bg-white bg-opacity-50 p-8 rounded-lg overflow-hidden">
+        <div className="max-w-3xl text-center box bg-opacity-50 p-8 rounded-lg overflow-hidden">
 
           {/* Rolling Heading */}
           <motion.h1
@@ -36,7 +36,7 @@ export default function HeroSection() {
                 ease: "easeOut",
                 delay: 0.2
               }}
-              className="text-blue-400 inline-block"
+              className="text-400 letter inline-block"
             >
               With Purpose
             </motion.span>

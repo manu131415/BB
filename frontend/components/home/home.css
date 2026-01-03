@@ -19,7 +19,20 @@
     transform: scale(1);
   }
 }
-
+.box{
+  background: rgba(240, 238, 177, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.letter{
+  font-family: 'Bigilla', sans-serif;
+  font-size: 3.5rem;
+  color: #1d3d81;
+  font-weight: 700;
+}
 .hero-overlay {
   background: #e7d56e;
   position: absolute;
