@@ -1,32 +1,6 @@
 @import "tailwindcss";
-.hero-bg {
-  background-image: url('/bg.jpg');
-  background-size: 120%;
-  background-repeat: no-repeat;
-  background-position: 0% 50%;
-  width: 110%;
-  height: 110%;
-  animation: bgMove 25s linear infinite;
-}
 
-@keyframes bgMove {
-  0% {
-    background-position: 0% 0%;
-    transform: scale(1);
-  }
-  100% {
-    background-position: 100% 100%;
-    transform: scale(1);
-  }
-}
-.box{
-  background: rgba(240, 238, 177, 0.5);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
+
 .letter{
   font-family: 'Bigilla', sans-serif;
   font-size: 3.5rem;
@@ -128,4 +102,101 @@
   color: #553b19;
 }
 
+/* 🌿 Background (Subtle, Editorial) */
+.hero-bg {
+  background-image: url('/bg.jpg');
+
+}
+
+.hero-bg {
+  background-image: url('/bg.jpg');
+  background-size: 200% 200%;
+  animation: bgMove 22s ease infinite;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-overlay {
+  background: rgba(181, 196, 45, 0.35);
+}
+
+/* 🌸 Bloom Shape */
+.bloom-shape {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  background: #f6e6a2;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  top: 15%;
+  right: 10%;
+  animation: floatBloom 20s ease-in-out infinite;
+}
+
+@keyframes floatBloom {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+  100% { transform: translateY(0); }
+}
+
+/* 📰 Card */
+.hero-card {
+  padding: 64px 48px;
+  background: rgba(247, 241, 159, 0.55);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+}
+
+/* ✒️ Typography */
+.hero-title {
+  font-family: "Bigilla", serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1.05;
+  margin-bottom: 24px;
+  color: #3b2a24;
+}
+
+.hero-word {
+  display: inline-block;
+  margin-right: 16px;
+  overflow: hidden;
+}
+
+/* 🌈 Gradient Highlight */
+.hero-gradient-text {
+  background: linear-gradient(90deg, #0052a1, #0074d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 📖 Subtext */
+.hero-subtext {
+  font-family: "Lekton", sans-serif;
+  font-size: 1.1rem;
+  color: #3b2a24;
+  margin-bottom: 36px;
+}
+
+/* 🚀 CTA */
+.hero-cta {
+  font-family: "Lekton", sans-serif;
+  padding: 14px 40px;
+  border-radius: 999px;
+  background: #0052a1;
+  color: #ffffff;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  transition: all 0.35s ease;
+}
+
+.hero-cta:hover {
+  background: #003f7f;
+  transform: translateY(-2px);
+  
+}
 

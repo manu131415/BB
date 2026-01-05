@@ -14,7 +14,7 @@ export default function Footer() {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-4">
+      <div className="max-w-7xl mx-auto px-6 py-14 grid-footer md:grid-cols-4">
 
         {/* Brand */}
         <div className="col1 md:col-span-1">

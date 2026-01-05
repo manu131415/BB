@@ -3,63 +3,78 @@
 import { motion } from "framer-motion"
 import "./home.css"
 
+const headline = ["Where", "Brands", "Bloom"]
+
 export default function HeroSection() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
 
-      {/* Moving Background */}
+      {/* Brand Gradient Background */}
       <div className="absolute inset-0 hero-bg" />
-
-      {/* Overlay */}
       <div className="absolute inset-0 hero-overlay" />
 
-      {/* Content */}
-      <div className="relative z-10 flex h-full items-center justify-center px-6">
-        <div className="max-w-3xl text-center box bg-opacity-50 p-8 rounded-lg overflow-hidden">
+      {/* Soft Bloom Shape */}
+      <div className="bloom-shape" />
 
-          {/* Rolling Heading */}
-          <motion.h1
-            initial={{ x: "100%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{
-              duration: 1.2,
-              ease: "easeOut"
-            }}
-            className="text-4xl md:text-6xl font-bold leading-tight mb-6"
-          >
-            Where Brands Grow{" "}
-            <motion.span
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              transition={{
-                duration: 1.2,
-                ease: "easeOut",
-                delay: 0.2
-              }}
-              className="text-400 letter inline-block"
-            >
-              With Purpose
-            </motion.span>
-          </motion.h1>
+      <div className="relative z-10 max-w-4xl px-6 text-center">
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={{
+            hidden: {},
+            show: { transition: { staggerChildren: 0.18 } }
+          }}
+          className="hero-card"
+        >
+          {/* Headline */}
+          <h1 className="hero-title">
+            {headline.map((word, i) => (
+              <motion.span
+                key={i}
+                className="hero-word"
+                variants={{
+                  hidden: { y: "120%" },
+                  show: {
+                    y: "0%",
+                    transition: { duration: 0.9, ease: "easeOut" }
+                  }
+                }}
+              >
+                {word === "Bloom" ? (
+                  <span className="hero-gradient-text">{word}</span>
+                ) : (
+                  word
+                )}
+              </motion.span>
+            ))}
+          </h1>
 
-          {/* Rolling Subtext (looping drift) */}
+          {/* Subtext */}
           <motion.p
             initial={{ y: 20, opacity: 0 }}
-            animate={{
-              y: [0, 0, 0],
-              opacity: 1
-            }}
-            transition={{
-              duration: 4,
-              ease: "easeInOut"
-            }}
-            className="text-lg md:text-xl text-black"
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="hero-subtext"
           >
-            Bloom Branding helps businesses shape clear identities through
-            strategy, design, and storytelling.
+            Helping brands grow through strategy, design,
+            and meaningful storytelling.
           </motion.p>
 
-        </div>
+          {/* CTA */}
+          <motion.a
+            href="/contact"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              delay: 1.2,
+              type: "spring",
+              stiffness: 90,
+              damping: 15
+            }}
+            className="hero-cta">
+            Let’s Build Your Brand
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   )
