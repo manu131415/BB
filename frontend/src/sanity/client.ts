@@ -1,10 +1,10 @@
-// src/sanity/client.ts
+// lib/sanity/client.ts
 import { createClient } from "next-sanity";
 
 export const client = createClient({
-  projectId: "c4bleu5x",          // ✅ correct project ID
-  dataset: "production",          // ✅ must exist in Sanity
-  apiVersion: "2024-01-01",        // ✅ valid date
-  useCdn: false,                    // ✅ recommended
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
+  apiVersion: "2026-01-07",
+  useCdn: false, // false because we need fresh data for writes
+  token: process.env.SANITY_API_TOKEN, // needed for write operations
 });
-

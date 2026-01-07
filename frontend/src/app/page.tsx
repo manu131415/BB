@@ -4,7 +4,7 @@ import HeroSection from "@/components/home/heroSection"
 import Testimonials from "@/components/home/testimonials"
 import MembersSection from "@/components/home/membersection"
 import JourneySection from "@/components/home/journeySection"
-
+import Services from "@/components/home/services"
 
 export default function Home() {
   return (
@@ -16,6 +16,7 @@ export default function Home() {
 >
 
       <HeroSection />
+      <Services />
       <MembersSection />
       <JourneySection />
       <Testimonials />

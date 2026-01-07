@@ -53,21 +53,40 @@ export default function Footer() {
           <h3 className="text-white font-semibold mb-4">
             Quick Enquiry
           </h3>
-          <form className="space-y-3">
-            <input
-              type="email"
-              placeholder="Your Email"
-              className="footer-input"
-            />
-            <textarea
-              placeholder="Your Message"
-              rows={3}
-              className="footer-input resize-none"
-            />
-            <button type="submit" className="footer-btn">
-              Send Enquiry
-            </button>
+          <form
+            className="space-y-3"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const form = e.currentTarget;
+              const data = {
+                email: (form.email as HTMLInputElement).value,
+                message: (form.message as HTMLTextAreaElement).value,
+              };
+
+              try {
+                const res = await fetch("/api/enquiry", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(data),
+                });
+                const result = await res.json();
+                if (res.ok) {
+                  alert("Enquiry sent!");
+                  form.reset();
+                } else {
+                  alert(result.error || "Something went wrong.");
+                }
+              } catch (err) {
+                console.error(err);
+                alert("Failed to send enquiry.");
+              }
+            }}
+          >
+            <input type="email" name="email" placeholder="Your Email" className="footer-input" />
+            <textarea name="message" placeholder="Your Message" rows={3} className="footer-input resize-none" />
+            <button type="submit" className="footer-btn">Send Enquiry</button>
           </form>
+
         </div>
 
 
