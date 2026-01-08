@@ -1,25 +1,22 @@
-"use client"
-import { motion } from "framer-motion"
+'use client'
+import HomeMotion from "@/components/home/HomeClient"
 import HeroSection from "@/components/home/heroSection"
 import Testimonials from "@/components/home/testimonials"
 import MembersSection from "@/components/home/membersection"
 import JourneySection from "@/components/home/journeySection"
 import Services from "@/components/home/services"
 
+
 export default function Home() {
   return (
-    <motion.main
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  exit={{ opacity: 0, y: -20 }}
-  transition={{ duration: 0.6, ease: "easeOut" }}
->
-
+    <main>
+    <HomeMotion>
       <HeroSection />
       <Services />
       <MembersSection />
       <JourneySection />
       <Testimonials />
-    </motion.main>
+      </HomeMotion>
+    </main>
   )
 }

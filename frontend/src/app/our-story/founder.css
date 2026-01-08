@@ -1,0 +1,45 @@
+.founder-page-bg{
+    background-color: #0f172a;
+    display: grid;
+    width: max-content
+}
+
+.founder-img{
+    border-radius: 15px;
+    padding: 10px;
+
+}
+
+.outer-bg{
+    background-color: #0f172a;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    color: white;
+}
+span.text-bold{
+    font-weight: bold;
+    color: white;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Bigilla', sans-serif;
+}
+p{
+    font-family: "Libre Baskerville, serif";
+          font: "1.3rem";
+          color: #d0d0d0;
+}
+h1.txt-top{
+          font-family: "Cinzel, serif";
+          font: "2.8rem";
+}
+.btn{
+    font-family: 'khand', sans-serif;
+    color: black;
+    background-color: white;
+}
+h3{
+    font-family: "Great Vibes, cursive";
+          font: 2rem;
+          color: #e4e4e4;
+}

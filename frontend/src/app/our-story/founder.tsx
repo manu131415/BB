@@ -1,11 +1,12 @@
 "use client"
 
 import { motion } from "framer-motion"
+import "./founder.css"
 
 export default function FounderPage() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20">
-      <div className="max-w-5xl w-full grid md:grid-cols-2 gap-12 items-center">
+    <section className="min-h-screen outer-bg flex items-center justify-center px-6 py-20">
+      <div className="max-w-5xl w-full founder-page-bg md:grid-cols-2 gap-12 items-center">
         
         {/* Founder Image */}
         <motion.div
@@ -13,7 +14,7 @@ export default function FounderPage() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="flex justify-center"
+          className="flex founder-img justify-center"
         >
           <img
             src="/founder.jpg"
@@ -29,8 +30,8 @@ export default function FounderPage() {
           transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
         >
-          <h1 className="text-4xl md:text-5xl font-semibold mb-4">
-            Hi, I’m <span className="text-black">Your Name</span>
+          <h1 className="txt-top text-4xl md:text-5xl font-semibold mb-4">
+            Hi, I’m <span className="text-bold">Your Name</span>
           </h1>
 
           <h3 className="text-lg text-gray-600 mb-6">
@@ -51,7 +52,7 @@ export default function FounderPage() {
 
           <motion.a
             href="/contact"
-            className="inline-block px-8 py-3 rounded-full bg-black text-white font-medium"
+            className="inline-block btn px-8 py-3 rounded-full bg-black text-white font-medium"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

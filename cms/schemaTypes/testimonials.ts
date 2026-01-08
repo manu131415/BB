@@ -26,5 +26,13 @@ export default defineType({
       title: 'Video Testimonial',
       type: 'url',
     }),
+    defineField({
+      name: 'clientImage',
+      title: 'Client Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
   ],
 })
