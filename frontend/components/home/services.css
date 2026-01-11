@@ -60,6 +60,7 @@
 .services-hero-wrapper {
   position: relative;
   padding: 80px 0;
+  border-radius: 10px;
 }
 
 .services-hero-wrapper::before {

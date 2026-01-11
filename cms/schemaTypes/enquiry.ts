@@ -1,50 +1,59 @@
-import {defineField, defineType} from 'sanity' 
+// sanity/schema/enquiry.ts
+import { defineField, defineType } from "sanity"
 
-const enquiry = defineType({
-  name: 'enquiry',
-  title : 'Enquiry',
-  type: 'document',
+export default defineType({
+  name: "enquiry",
+  title: "Enquiry",
+  type: "document",
   fields: [
     defineField({
-      name: 'Name',
-      type: 'string',
+      name: "name",
+      title: "Name",
+      type: "string",
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'email',
-      type: 'string',
+      name: "email",
+      title: "Email",
+      type: "string",
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'phone',
-      type: 'string',
-      validation: (rule) => rule.required(),
+      name: "phone",
+      title: "Phone",
+      type: "string",
     }),
     defineField({
-      name: 'company_or_brand_name',
-      type: 'string',
-      validation: (rule) => rule.required(),
+      name: "company",
+      title: "Company / Brand",
+      type: "string",
     }),
     defineField({
-      name: 'project_or_collaboration_details',
-      type: 'text', 
-      validation: (rule) => rule.required(),
+      name: "subject",
+      title: "Subject",
+      type: "string",
     }),
     defineField({
-      name: 'budget',
-      type: 'string',
-      validation: (rule) => rule.required(),
-    }),
-     defineField({
-      name: 'timeline',
-      type: 'string',
-      validation: (rule) => rule.required(),
+      name: "budget",
+      title: "Budget",
+      type: "string",
     }),
     defineField({
-      name: 'project_brief',
-      type: 'text',
+      name: "timeline",
+      title: "Timeline",
+      type: "string",
+    }),
+    defineField({
+      name: "services",
+      title: "Services Interested",
+      type: "array",
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "message",
+      title: "Project Brief",
+      type: "text",
+      validation: (rule) => rule.required(),
     }),
   ],
 })
-
-export default enquiry

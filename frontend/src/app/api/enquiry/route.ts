@@ -1,31 +1,32 @@
 // src/app/api/enquiry/route.ts
-import { NextResponse } from "next/server";
-import { client } from "@/src/sanity/client"; // ⚠️ path fixed
+import { NextResponse } from "next/server"
+import { sanityWriteClient } from "@/src/sanity/clientWrite"
 
 export async function POST(req: Request) {
   try {
-    const { email, message } = await req.json();
+    const body = await req.json()
 
-    if (!email || !message) {
-      return NextResponse.json(
-        { error: "Email and message are required." },
-        { status: 400 }
-      );
+    const doc = {
+      _type: "enquiry",
+      name: body.name,
+      email: body.email,
+      phone: body.phone,
+      company: body.company,
+      subject: body.subject,
+      budget: body.budget,
+      timeline: body.timeline,
+      services: body.services,
+      message: body.message,
     }
 
-    await client.create({
-      _type: "quick_enquiry",
-      email,
-      message,
-      createdAt: new Date().toISOString(),
-    });
+    await sanityWriteClient.create(doc)
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ success: true })
   } catch (error) {
-    console.error("Enquiry error:", error);
+    console.error("Enquiry error:", error)
     return NextResponse.json(
-      { error: "Failed to submit enquiry." },
+      { success: false },
       { status: 500 }
-    );
+    )
   }
 }

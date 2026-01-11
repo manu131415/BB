@@ -14,9 +14,9 @@ export default function JourneySection() {
 
   return (
     <section className="relative container w-full py-20">
-      <div className="absolute inset-0 bg-gradient-to-b from-bloom-butterYellow/30 to-transparent pointer-events-none" />
+      <div className="absolute outer-box inset-0 bg-gradient-to-b from-bloom-butterYellow/30 to-transparent pointer-events-none" />
 
-      <div className="relative max-w-6xl mx-auto px-6">
+      <div className="relative box max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export default function JourneySection() {
           className="mb-10 flex items-end justify-between gap-6"
         >
           <div className="text-top">
-            <p className="inline-block rounded-full border border-bloom-darkChoc/20 bg-bloom-earlGray px-3 py-1 text-xs font-semibold tracking-wide text-bloom-darkChoc">Blooming the Brand</p>
+            <p className="inline-block px-3 py-1 text-xxl font-semibold text-bloom-darkChoc">Blooming the Brand</p>
             <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-bloom-darkChoc">Our Journey</h2>
             <p className="text-box mt-2 max-w-2xl text-bloom-darkChoc/80">Momentum built on craft and clarity — strategy, content, and expressive digital experiences that help brands grow.</p>
           </div>

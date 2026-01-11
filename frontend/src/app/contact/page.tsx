@@ -8,16 +8,42 @@ export default function ContactPage() {
   const [status, setStatus] = useState<Status>("idle")
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setStatus("submitting")
-    try {
-      // Side‑effect free submission stub
-      await new Promise((r) => setTimeout(r, 700))
-      setStatus("success")
-    } catch {
-      setStatus("error")
-    }
+  e.preventDefault()
+  setStatus("submitting")
+
+  const form = e.currentTarget
+  const formData = new FormData(form)
+
+  const services = formData.getAll("services")
+
+  const payload = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    phone: formData.get("phone"),
+    company: formData.get("company"),
+    subject: formData.get("subject"),
+    budget: formData.get("budget"),
+    timeline: formData.get("timeline"),
+    services,
+    message: formData.get("message"),
   }
+
+  try {
+    const res = await fetch("/api/enquiry", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+
+    if (!res.ok) throw new Error("Failed")
+
+    setStatus("success")
+    form.reset()
+  } catch {
+    setStatus("error")
+  }
+}
+
 
   return (
     <main className="min-h-[70vh] bg-bloom-butterYellow/20">

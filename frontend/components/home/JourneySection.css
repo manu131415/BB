@@ -44,7 +44,7 @@
   background: linear-gradient(
     120deg,
     transparent 30%,
-    rgba(255,255,255,0.35),
+    rgba(231, 226, 226, 0.788),
     transparent 70%
   );
   transform: translateX(-120%);
@@ -102,9 +102,26 @@
     margin-right: auto;
 }
 .text-top{
+    color:#e0e0e0;
+    text-shadow: #c0a779 0px 0px 5px;
     width: 100%;
     text-align: center;
 }
 .text-box{
     display: inline-block;
+}
+
+.outer-box {
+    box-sizing: border-box;
+    border: 2px solid #e0e0e0;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #A89984, #FCE883, #c9ab48);
+    background-size: 400% 400%;
+    animation: gradientFlow 12s infinite ease;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
